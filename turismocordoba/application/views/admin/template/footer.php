@@ -6,7 +6,7 @@
 
             <div class="row justify-content-center">
                 <div class="col-lg-6">
-                    <a href="#header" class="scrollto footer-logo"><img src="assets/img/logo.png" alt=""></a>
+                    <a href="#header" class="scrollto footer-logo"><img src="assets/img/icon.png" alt=""></a>
                     <h3>Turismo Cordoba</h3>
                 </div>
             </div>

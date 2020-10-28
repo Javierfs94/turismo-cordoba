@@ -23,7 +23,44 @@
   <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
   <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.css" />
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Knight - v2.1.0
+  * Template URL: https://bootstrapmade.com/knight-free-bootstrap-theme/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+
+    <div class="hero-container">
+      <a href="index.php" class="hero-logo" data-aos="zoom-in"><img src="assets/img/logo.png" alt="Imagen de logo"></a>
+      <h1 data-aos="zoom-in">Turismo Cordoba</h1>
+      <h2 data-aos="fade-up">Donde disfrutará de una visita mágica</h2>
+      <a data-aos="fade-up" href="#about" class="btn-get-started scrollto">Comenzar</a>
+    </div>
+  </section><!-- End Hero -->
+
+  <!-- ======= Header ======= -->
+  <?php $this->load->view('app/template/header', NULL); ?>
+  <!-- End Header -->
+
+  <main id="main">
+    {body}
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <?php $this->load->view('app/template/footer', NULL); ?>
+  <!-- End Footer -->
+
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/jquery/jquery.min.js"></script>
@@ -35,39 +72,6 @@
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
-  <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.js"></script>
-
-  <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
-
-</head>
-
-<body>
-  <!-- ======= Header ======= -->
-  <?php $this->load->view('admin/template/header', NULL); ?>
-  <!-- End Header -->
-
-  <!-- ======= Hero Section ======= -->
-  <section id="hero">
-
-    <div class="hero-container">
-      <a href="index.php" class="hero-logo" data-aos="zoom-in"><img src="<?php base_url() ?>assets/img/logo.png" alt="Imagen de logo"></a>
-      <h1 data-aos="zoom-in">Turismo Córdoba</h1>
-      <h2 data-aos="fade-up">Donde disfrutará de una visita mágica</h2>
-      <a data-aos="fade-up" href="#about" class="btn-get-started scrollto">Comenzar</a>
-    </div>
-  </section><!-- End Hero -->
-
-
-  <main id="main">
-    {body}
-  </main><!-- End #main -->
-
-  <!-- ======= Footer ======= -->
-  <?php $this->load->view('admin/template/footer', NULL); ?>
-  <!-- End Footer -->
-
-  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
