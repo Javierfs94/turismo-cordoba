@@ -1,0 +1,29 @@
+<section>
+  <div class="loginContainer">
+
+    <form action="" method="post">
+      <div id="login">
+
+        <h3>Entrar</h3>
+
+        <?php echo '<p style="color: red">' . $mensaje . '</p>'; ?>
+
+        <div class="form-group">
+          <label for="email">Correo electrónico</label>
+          <input type="email" name="email" placeholder="correo@ejemplo.com" class="form-control" id="email" value="" aria-describedby="emailHelp" required>
+          <!-- <small id="emailHelp" class="form-text text-muted">Tranquilo, tu correo no será compartido ni usado por terceros.</small> -->
+        </div>
+
+        <div class="form-group">
+          <label for="password">Contraseña</label>
+          <input type="password" placeholder="tu contraseña" class="form-control" name="password" id="password" value="" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Entrar</button>
+        <small id="registroMessage" class="form-text text-muted"> <a href="<?php echo base_url() ?>home/registro">¿Todavía sin cuenta? Pulsa aquí</a></small>
+      </div>
+
+    </form>
+
+  </div>
+</section>

@@ -1,22 +1,54 @@
-<table width="100%" style="text-align: center; border: 1px;" cellspacing="5" cellpadding="5">
-  <tr style="background:#CCC">
-    <th>#</th>
-    <th>Empresa</th>
-    <th>Dependiente</th>
-    <th>Nombre</th>
-    <th>Localización</th>
-    <th style="text-align: center;">Actions</th>
-  </tr>
-  <?php
-  foreach ($establecimientos as $row) {
-    echo "<tr>";
-    echo "<td data-id='".$row->id."'>" . $row->id . "</td>";
-    echo "<td>" . $row->nombre . "</td>";
-    echo "<td>" . $row->username . "</td>";
-    echo "<td>" . $row->nombre_establecimiento . "</td>";
-    echo "<td><a href='" . $row->direccion . "'>Direccion</a></td>";
-    echo "<td><button class='btn btn-info btn-sm m-1'>Edit</button><button class='btn btn-danger btn-sm m-1'>Borrar</button></td>";
-    echo "</tr>";
-  }
-  ?>
-</table>
+<section>
+    <div class="row">
+        <div class="col-sm-12">
+            <?php
+            echo '                  
+        <div class="text-center ml-2">
+          <table class="table table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>#</th>
+                    <th>Nombre Establecimiento</th>
+                    <th>Direccion</th>
+                    <th>Imagen</th>
+                    <th>Tipo</th>
+                    <th>Estado</th>      
+                    <th>Borrado</th>      
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+          <tbody>';
+            foreach ($establecimientos as $row) {
+                echo "
+            <tr>";
+                echo "<td data-id='" . $row->id . "'>" . $row->id . "</td>";
+                echo "<td>" . $row->nombre_establecimiento . "</td>";
+                echo "<td>" . $row->direccion . "</td>";
+                echo '<td><img src="' . base_url() . 'uploads/establecimientos/' . $row->imagen . '" style="width: 50px; height: 50px;"alt="Establecimientos Imagen"></td>';
+                echo "<td>" . $row->tipo . "</td>";
+                echo "<td>" . $row->estado . "</td>";
+                echo "<td>" . $row->borrado . "</td>";
+                echo '
+                <td>        
+                <a href="' . base_url() . 'establecimientos_admin/form/' . $row->id . '">
+                    <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Editar el establecimiento">
+                    <i class="fa fa-pen"></i>
+                    </button>
+                </a>
+                <a href="' . base_url() . 'establecimientos_admin/borrar/' . $row->id . '">
+                    <button type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Borrar el establecimiento">
+                        <i class="fa fa-trash"></i>
+                    </button>
+                </a>
+                </td>            
+            </tr>
+            ';
+            }
+            echo "
+        </tbody>
+        </table>";
+            ?>
+        </div>
+    </div>
+    </div>
+</section>

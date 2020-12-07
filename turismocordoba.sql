@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-10-2020 a las 13:52:30
--- Versión del servidor: 10.4.11-MariaDB
--- Versión de PHP: 7.4.1
+-- Tiempo de generación: 07-12-2020 a las 18:59:14
+-- Versión del servidor: 10.4.14-MariaDB
+-- Versión de PHP: 7.2.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -25,133 +24,25 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `acl`
---
-
-CREATE TABLE `acl` (
-  `ai` int(10) UNSIGNED NOT NULL,
-  `action_id` int(10) UNSIGNED NOT NULL,
-  `user_id` int(10) UNSIGNED DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `acl_actions`
---
-
-CREATE TABLE `acl_actions` (
-  `action_id` int(10) UNSIGNED NOT NULL,
-  `action_code` varchar(100) NOT NULL COMMENT 'No periods allowed!',
-  `action_desc` varchar(100) NOT NULL COMMENT 'Human readable description',
-  `category_id` int(10) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `acl_categories`
---
-
-CREATE TABLE `acl_categories` (
-  `category_id` int(10) UNSIGNED NOT NULL,
-  `category_code` varchar(100) NOT NULL COMMENT 'No periods allowed!',
-  `category_desc` varchar(100) NOT NULL COMMENT 'Human readable description'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `auth_sessions`
---
-
-CREATE TABLE `auth_sessions` (
-  `id` varchar(128) NOT NULL,
-  `user_id` int(10) UNSIGNED NOT NULL,
-  `login_time` datetime DEFAULT NULL,
-  `modified_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `ip_address` varchar(45) NOT NULL,
-  `user_agent` varchar(60) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `ci_sessions`
---
-
-CREATE TABLE `ci_sessions` (
-  `id` varchar(128) NOT NULL,
-  `ip_address` varchar(45) NOT NULL,
-  `timestamp` int(10) UNSIGNED NOT NULL DEFAULT 0,
-  `data` blob NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
---
--- Volcado de datos para la tabla `ci_sessions`
---
-
-INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES
-('s4sdesi1h5us6rl4oa2nmij1q4thiecp', '127.0.0.1', 1602697574, 0x5f5f63695f6c6173745f726567656e65726174657c693a313630323639373537343b),
-('4fuqcbkodfncjne0ofq5qh45ubcmni45', '127.0.0.1', 1602779554, 0x5f5f63695f6c6173745f726567656e65726174657c693a313630323737393535343b),
-('at8nr5plqjfan27nniiv6pg87ahttcsj', '127.0.0.1', 1602779554, 0x5f5f63695f6c6173745f726567656e65726174657c693a313630323737393535343b),
-('4ipnj61udvugi3jjprmmhs99dpr60tm4', '127.0.0.1', 1602787223, 0x5f5f63695f6c6173745f726567656e65726174657c693a313630323738373232333b),
-('3trgfd5sbhhci7qsnc6rrqgormi33jka', '127.0.0.1', 1602787747, 0x5f5f63695f6c6173745f726567656e65726174657c693a313630323738373734373b),
-('7jarucall7bl5k8sr78no9aiu09ba179', '127.0.0.1', 1602787781, 0x5f5f63695f6c6173745f726567656e65726174657c693a313630323738373734373b),
-('1ta9pplp159eog8vd4uqvfplmad82kmq', '::1', 1602927906, 0x5f5f63695f6c6173745f726567656e65726174657c693a313630323932373930363b),
-('fpn8ic2vvjrolm96pj06bsmibcfb76ff', '::1', 1602928254, 0x5f5f63695f6c6173745f726567656e65726174657c693a313630323932383235343b),
-('q28kilrqlfbnlmgn3erkd0494inv5oe8', '::1', 1602928647, 0x5f5f63695f6c6173745f726567656e65726174657c693a313630323932383634373b),
-('jpoktqpvi306891obkuepe3ja476c9s2', '::1', 1602929667, 0x5f5f63695f6c6173745f726567656e65726174657c693a313630323932393636373b),
-('makinaso2rn7vr4sbma4ouehtv6u8cid', '::1', 1602930298, 0x5f5f63695f6c6173745f726567656e65726174657c693a313630323933303239383b),
-('tfklluim1k12ni177mb2oijt2a3qfhen', '::1', 1602931061, 0x5f5f63695f6c6173745f726567656e65726174657c693a313630323933313036313b),
-('0kicjso9tch6h5m5gb4nfc3gov2bvus3', '::1', 1602931399, 0x5f5f63695f6c6173745f726567656e65726174657c693a313630323933313339393b),
-('jdfmaj60n31ohm66l877rpkv0k41r4rg', '::1', 1602933825, 0x5f5f63695f6c6173745f726567656e65726174657c693a313630323933333832353b),
-('8bgcjisd0cks9lnk23qhcu5kuj04v0rq', '::1', 1602935348, 0x5f5f63695f6c6173745f726567656e65726174657c693a313630323933353334383b),
-('3n4j0q69ufvd2bg0cef3fo5jn1dcn9se', '::1', 1602935850, 0x5f5f63695f6c6173745f726567656e65726174657c693a313630323933353835303b),
-('h704mos68b5rodo4t5fbqmmn8ncg2eni', '::1', 1602936178, 0x5f5f63695f6c6173745f726567656e65726174657c693a313630323933363137383b),
-('bb2b6f2djh4vpkesr40k4b9uf892r67a', '::1', 1602936453, 0x5f5f63695f6c6173745f726567656e65726174657c693a313630323933363137383b),
-('jvu10uuo3ukof504dp2gm4sm7gjbmqpp', '::1', 1603011494, 0x5f5f63695f6c6173745f726567656e65726174657c693a313630333031313439343b),
-('s8mv94jugfgb78oeg2qklqo5522dssb6', '::1', 1603011802, 0x5f5f63695f6c6173745f726567656e65726174657c693a313630333031313830323b),
-('vb6520h3vp3v9dmd399tdleuqvf2v8pi', '::1', 1603012934, 0x5f5f63695f6c6173745f726567656e65726174657c693a313630333031323933343b),
-('rthtebgd9gdkt6sopa7nnob4h165lce9', '::1', 1603013898, 0x5f5f63695f6c6173745f726567656e65726174657c693a313630333031333839383b),
-('8e36fl8flcf1f8k2qakc7dkpnttqtgv6', '::1', 1603016990, 0x5f5f63695f6c6173745f726567656e65726174657c693a313630333031363939303b),
-('lqfreeuq39q3lclk3ft6pp60601sb6u8', '::1', 1603017330, 0x5f5f63695f6c6173745f726567656e65726174657c693a313630333031373333303b),
-('212tq9muom0p7efhii1utpi42n9bin55', '::1', 1603021379, 0x5f5f63695f6c6173745f726567656e65726174657c693a313630333032313337393b),
-('n2j80c5bnl7kiaq7uvloiecsasmno7k2', '::1', 1603021379, 0x5f5f63695f6c6173745f726567656e65726174657c693a313630333032313337393b);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `denied_access`
---
-
-CREATE TABLE `denied_access` (
-  `ai` int(10) UNSIGNED NOT NULL,
-  `ip_address` varchar(45) NOT NULL,
-  `time` datetime NOT NULL,
-  `reason_code` tinyint(1) UNSIGNED DEFAULT 0
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `empresas`
 --
 
 CREATE TABLE `empresas` (
   `id` int(11) NOT NULL,
-  `id_gerente` int(10) UNSIGNED NOT NULL,
-  `nombre` varchar(60) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `valoracion` int(1) NOT NULL
+  `id_gerente` int(11) DEFAULT NULL,
+  `nombre_empresa` varchar(60) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `aprobada` varchar(2) COLLATE utf8mb4_spanish_ci NOT NULL DEFAULT 'no',
+  `borrado` int(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `empresas`
 --
 
-INSERT INTO `empresas` (`id`, `id_gerente`, `nombre`, `valoracion`) VALUES
-(1, 1, 'Bar Paquita', 4),
-(2, 4, 'McDonals', 3);
+INSERT INTO `empresas` (`id`, `id_gerente`, `nombre_empresa`, `created_at`, `aprobada`, `borrado`) VALUES
+(1, 2, 'Bar Paquita', '2020-12-05 10:16:32', 'si', 0),
+(27, 39, 'McDonalds', '2020-12-07 16:55:22', 'si', 0);
 
 -- --------------------------------------------------------
 
@@ -161,43 +52,49 @@ INSERT INTO `empresas` (`id`, `id_gerente`, `nombre`, `valoracion`) VALUES
 
 CREATE TABLE `establecimientos` (
   `id` int(11) NOT NULL,
-  `id_empresa` int(11) NOT NULL,
-  `id_usuario` int(10) UNSIGNED NOT NULL,
+  `id_empresa` int(11) DEFAULT NULL,
+  `id_gerente` int(11) DEFAULT NULL,
   `nombre_establecimiento` varchar(60) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `direccion` varchar(120) COLLATE utf8mb4_spanish_ci NOT NULL
+  `direccion` varchar(120) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `imagen` varchar(60) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `tipo` varchar(20) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `estado` int(1) NOT NULL DEFAULT 1,
+  `borrado` int(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `establecimientos`
 --
 
-INSERT INTO `establecimientos` (`id`, `id_empresa`, `id_usuario`, `nombre_establecimiento`, `direccion`) VALUES
-(1, 2, 2, 'La Viona', 'https://goo.gl/maps/F6hzrMtCMMMpQRp18');
+INSERT INTO `establecimientos` (`id`, `id_empresa`, `id_gerente`, `nombre_establecimiento`, `direccion`, `imagen`, `tipo`, `estado`, `borrado`) VALUES
+(1, 1, 2, 'La Viona', 'Afufuh', '', 'Restauracion', 1, 0),
+(24, 1, 2, 'Nueva Viola', 'Calle falsa', 'NuevaViola24.jpg', 'Cultura', 1, 0),
+(27, 1, 2, 'Otro establecimiento', 'Un lugar de la mancha', 'Otroestablecimiento27.jpg', 'Ocio', 1, 0),
+(28, 27, 39, 'McDonalds Brillante', 'Avenida del Brillante', NULL, 'Ocio', 1, 0),
+(29, 27, 39, 'McDonads Las Quemadas', 'Las Quemadas', NULL, 'Restauracion', 1, 0);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `ips_on_hold`
+-- Estructura de tabla para la tabla `establecimientos_tiene_dependientes`
 --
 
-CREATE TABLE `ips_on_hold` (
-  `ai` int(10) UNSIGNED NOT NULL,
-  `ip_address` varchar(45) NOT NULL,
-  `time` datetime NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
+CREATE TABLE `establecimientos_tiene_dependientes` (
+  `id` int(1) NOT NULL,
+  `id_establecimiento` int(1) NOT NULL,
+  `id_dependiente` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Estructura de tabla para la tabla `login_errors`
+-- Volcado de datos para la tabla `establecimientos_tiene_dependientes`
 --
 
-CREATE TABLE `login_errors` (
-  `ai` int(10) UNSIGNED NOT NULL,
-  `username_or_email` varchar(255) NOT NULL,
-  `ip_address` varchar(45) NOT NULL,
-  `time` datetime NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+INSERT INTO `establecimientos_tiene_dependientes` (`id`, `id_establecimiento`, `id_dependiente`) VALUES
+(1, 1, 3),
+(2, 24, 37),
+(3, 24, 38),
+(4, 28, 40),
+(5, 29, 41);
 
 -- --------------------------------------------------------
 
@@ -207,20 +104,33 @@ CREATE TABLE `login_errors` (
 
 CREATE TABLE `ofertas` (
   `id` int(11) NOT NULL,
-  `id_empresa` int(11) NOT NULL,
+  `id_empresa` int(11) DEFAULT NULL,
   `descripcion` varchar(60) COLLATE utf8mb4_spanish_ci NOT NULL,
   `tipo` varchar(20) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `codigos` varchar(6) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `puntos` int(11) NOT NULL
+  `codigo` int(6) NOT NULL,
+  `nivel_requerido` int(3) NOT NULL DEFAULT 0,
+  `puntos` int(11) NOT NULL,
+  `fecha_inicio` date DEFAULT NULL,
+  `fecha_fin` date DEFAULT NULL,
+  `estado` varchar(2) COLLATE utf8mb4_spanish_ci NOT NULL DEFAULT 'si',
+  `borrado` int(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `ofertas`
 --
 
-INSERT INTO `ofertas` (`id`, `id_empresa`, `descripcion`, `tipo`, `codigos`, `puntos`) VALUES
-(1, 1, 'Descuento en la consumición del 20%', 'Rebaja', '123ABC', 10),
-(2, 2, 'Sorteo de cascos', 'sorteo', '456FFF', 30);
+INSERT INTO `ofertas` (`id`, `id_empresa`, `descripcion`, `tipo`, `codigo`, `nivel_requerido`, `puntos`, `fecha_inicio`, `fecha_fin`, `estado`, `borrado`) VALUES
+(1, 1, 'Descuento en la consumición del 30%', 'Cultura', 27, 0, 10, '2020-12-01', '2020-12-24', '1', 0),
+(2, 1, 'Sorteo de cascos', 'Ocio', 456, 1, 30, '2020-12-02', '2020-12-03', '0', 0),
+(3, 1, '2x1 increible', 'Cultura', 111, 0, 50, '2020-12-02', '2020-12-23', '1', 0),
+(4, 1, 'Entrada gratis para niño con adulto', 'Cultura', 478, 5, 10, '2020-12-01', '2020-12-17', '1', 0),
+(5, 1, 'Entrada gratis para menores de 16 años', 'Restauracion', 666, 0, 10, '2020-12-01', '2020-12-11', '1', 0),
+(6, 1, 'Descuento en la consumición del 40%', 'Restauracion', 745, 0, 30, '2020-12-01', '2020-12-06', '0', 0),
+(7, 1, 'Mcpollo de regalo', 'Ocio', 456, 3, 30, '2020-12-01', '2020-12-23', '1', 0),
+(8, 1, 'Oferta de prueba con nivel', 'Ocio', 608, 0, 50, '2020-12-01', '2020-12-03', '0', 0),
+(9, 27, 'MacHamburgesa', 'Restauracion', 891, 0, 5, '2020-12-07', '2020-12-17', '1', 0),
+(10, 27, 'Alitas crujientes', 'Restauracion', 222, 2, 15, '2020-12-07', '2020-12-16', '1', 0);
 
 -- --------------------------------------------------------
 
@@ -230,116 +140,70 @@ INSERT INTO `ofertas` (`id`, `id_empresa`, `descripcion`, `tipo`, `codigos`, `pu
 
 CREATE TABLE `perfil` (
   `id` int(11) NOT NULL,
-  `id_usuario` int(10) UNSIGNED NOT NULL,
+  `id_usuario` int(11) DEFAULT NULL,
   `puntos` int(11) NOT NULL,
   `nivel` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
+--
+-- Volcado de datos para la tabla `perfil`
+--
+
+INSERT INTO `perfil` (`id`, `id_usuario`, `puntos`, `nivel`) VALUES
+(1, 4, 70, 4),
+(2, 42, 0, 1),
+(3, 46, 20, 1);
+
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `username_or_email_on_hold`
+-- Estructura de tabla para la tabla `usuarios`
 --
 
-CREATE TABLE `username_or_email_on_hold` (
-  `ai` int(10) UNSIGNED NOT NULL,
-  `username_or_email` varchar(255) NOT NULL,
-  `time` datetime NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `users`
---
-
-CREATE TABLE `users` (
-  `user_id` int(10) UNSIGNED NOT NULL,
-  `username` varchar(12) DEFAULT NULL,
-  `email` varchar(255) NOT NULL,
-  `auth_level` tinyint(3) UNSIGNED NOT NULL,
-  `banned` enum('0','1') NOT NULL DEFAULT '0',
-  `passwd` varchar(60) NOT NULL,
-  `passwd_recovery_code` varchar(60) DEFAULT NULL,
-  `passwd_recovery_date` datetime DEFAULT NULL,
-  `passwd_modified_at` datetime DEFAULT NULL,
+CREATE TABLE `usuarios` (
+  `id` int(11) NOT NULL,
+  `username` varchar(30) NOT NULL,
+  `password` varchar(60) NOT NULL,
+  `nombre` varchar(30) NOT NULL,
+  `apellidos` varchar(120) NOT NULL,
+  `email` varchar(60) NOT NULL,
+  `imagen` varchar(60) DEFAULT NULL,
+  `perfil` int(1) NOT NULL,
+  `created_at` datetime DEFAULT NULL,
   `last_login` datetime DEFAULT NULL,
-  `created_at` datetime NOT NULL,
-  `modified_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `last_modified` datetime DEFAULT NULL,
+  `baneado` int(1) NOT NULL DEFAULT 0,
+  `borrado` int(11) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `users`
+-- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `users` (`user_id`, `username`, `email`, `auth_level`, `banned`, `passwd`, `passwd_recovery_code`, `passwd_recovery_date`, `passwd_modified_at`, `last_login`, `created_at`, `modified_at`) VALUES
-(2, 'FranciscoVio', 'fViona@gmail.com', 1, '0', 'asdasddqweqwdasda', NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '2020-10-18 10:34:55'),
-(3402487300, 'admin', 'admin@turismocordoba.com', 9, '0', '$2y$11$jvyxgLP.nNeVyBKhNvuYGORbyiQw.4hN/o4xgOO0qfCUGbZVMghTS', NULL, NULL, NULL, NULL, '2020-10-15 18:20:34', '2020-10-15 16:20:34');
-
---
--- Disparadores `users`
---
-DELIMITER $$
-CREATE TRIGGER `ca_passwd_trigger` BEFORE UPDATE ON `users` FOR EACH ROW BEGIN
-    IF ((NEW.passwd <=> OLD.passwd) = 0) THEN
-        SET NEW.passwd_modified_at = NOW();
-    END IF;
-END
-$$
-DELIMITER ;
+INSERT INTO `usuarios` (`id`, `username`, `password`, `nombre`, `apellidos`, `email`, `imagen`, `perfil`, `created_at`, `last_login`, `last_modified`, `baneado`, `borrado`) VALUES
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Administrador', 'Admini', 'admin@turismocordoba.com', 'admin1.jpg', 4, '2020-11-21 20:48:25', '2020-12-07 17:16:59', '2020-12-04 14:14:35', 0, 0),
+(2, 'gerente', '740d9c49b11f3ada7b9112614a54be41', 'Paco', 'Rios Santos', 'gerente@turismocordoba.com', 'gerente2.jpg', 3, NULL, '2020-12-07 17:55:57', '2020-11-29 20:56:05', 0, 0),
+(3, 'dependiente', 'de0194a0d9548a147bd322c52f6adbe3', 'dependiente', 'dependiente', 'dependiente@turismocordoba.com', '', 2, NULL, '2020-12-07 17:28:02', NULL, 0, 0),
+(4, 'usuario', 'f8032d5cae3de20fcec887f395ec9a6a', 'Romeo', 'Santos', 'usuario@turismocordoba.com', 'usuario4.jpg', 1, NULL, '2020-12-07 17:34:32', '2020-11-30 20:06:04', 0, 0),
+(36, 'profesora', 'fe80b8b4c8941a26aebeb3a534992cc7', 'Lourdes', 'Magarín Corvillo', 'profesora@iesgrancapitan.org', 'profesora36.jpg', 4, '2020-12-05 10:16:41', '2020-12-05 10:28:36', '2020-12-05 10:28:03', 0, 0),
+(37, 'dependiente2', '651a7b944b6a14f35d1b990fa6ea09db', 'dependiente2', 'dependiente2', 'dependiente2@turismocordoba.com', '', 2, '2020-12-07 12:47:51', '2020-12-06 15:59:56', '2020-12-07 12:47:51', 0, 0),
+(38, 'Dependiente3', '97333eb08b7ce7015ee0317d4416daa0', 'Dependiente3', 'Dependientedependiente3', 'dependiente3@turismocordoba.com', NULL, 2, '2020-12-07 18:15:07', NULL, '2020-12-07 18:15:07', 0, 0),
+(39, 'mcdonalds', '5179b21fc1d50950b99b4eecaa48c614', 'Ronald', 'MacDonalds', 'mcdonalds@turismocordoba.com', NULL, 3, '2020-12-07 16:55:22', '2020-12-07 18:15:19', '2020-12-07 17:03:21', 0, 0),
+(40, 'macdependiente1', 'a3169e4eb3b3407f76481f17ec519c6e', 'Macdependiente1', 'Macdependiente1', 'macdependiente1@turismocordoba.com', NULL, 2, '2020-12-07 17:37:01', '2020-12-07 18:34:56', NULL, 0, 0),
+(41, 'macdependiente2', '771675a32ff1d6a5ce69daac46c25980', 'Macdependiente2', 'Macdependiente2', 'macdependiente2@turismocordoba.com', NULL, 2, '2020-12-07 18:17:34', NULL, '2020-12-07 18:17:34', 0, 0),
+(42, 'paquito', 'f8032d5cae3de20fcec887f395ec9a6a', 'Paco', 'Gonzalez', 'pacogonza@turismocordoba.com', NULL, 1, '2020-12-07 18:20:04', '2020-12-07 18:20:15', NULL, 0, 0),
+(46, 'magico', '81dc9bdb52d04dc20036dbd8313ed055', 'Joaquin', 'Felix', 'magico@turismocordoba.com', NULL, 1, '2020-12-07 18:30:07', '2020-12-07 18:30:23', NULL, 0, 0);
 
 --
 -- Índices para tablas volcadas
 --
 
 --
--- Indices de la tabla `acl`
---
-ALTER TABLE `acl`
-  ADD PRIMARY KEY (`ai`),
-  ADD KEY `action_id` (`action_id`),
-  ADD KEY `user_id` (`user_id`);
-
---
--- Indices de la tabla `acl_actions`
---
-ALTER TABLE `acl_actions`
-  ADD PRIMARY KEY (`action_id`),
-  ADD KEY `category_id` (`category_id`);
-
---
--- Indices de la tabla `acl_categories`
---
-ALTER TABLE `acl_categories`
-  ADD PRIMARY KEY (`category_id`),
-  ADD UNIQUE KEY `category_code` (`category_code`),
-  ADD UNIQUE KEY `category_desc` (`category_desc`);
-
---
--- Indices de la tabla `auth_sessions`
---
-ALTER TABLE `auth_sessions`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `ci_sessions`
---
-ALTER TABLE `ci_sessions`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `ci_sessions_timestamp` (`timestamp`);
-
---
--- Indices de la tabla `denied_access`
---
-ALTER TABLE `denied_access`
-  ADD PRIMARY KEY (`ai`);
-
---
 -- Indices de la tabla `empresas`
 --
 ALTER TABLE `empresas`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id_gerente` (`id_gerente`);
+  ADD KEY `id_gerente` (`id_gerente`);
 
 --
 -- Indices de la tabla `establecimientos`
@@ -347,19 +211,15 @@ ALTER TABLE `empresas`
 ALTER TABLE `establecimientos`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_empresa` (`id_empresa`),
-  ADD KEY `id_usuario` (`id_usuario`);
+  ADD KEY `id_gerente` (`id_gerente`);
 
 --
--- Indices de la tabla `ips_on_hold`
+-- Indices de la tabla `establecimientos_tiene_dependientes`
 --
-ALTER TABLE `ips_on_hold`
-  ADD PRIMARY KEY (`ai`);
-
---
--- Indices de la tabla `login_errors`
---
-ALTER TABLE `login_errors`
-  ADD PRIMARY KEY (`ai`);
+ALTER TABLE `establecimientos_tiene_dependientes`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_establecimiento` (`id_establecimiento`),
+  ADD KEY `id_dependiente` (`id_dependiente`);
 
 --
 -- Indices de la tabla `ofertas`
@@ -376,124 +236,51 @@ ALTER TABLE `perfil`
   ADD KEY `id_usuario` (`id_usuario`);
 
 --
--- Indices de la tabla `username_or_email_on_hold`
+-- Indices de la tabla `usuarios`
 --
-ALTER TABLE `username_or_email_on_hold`
-  ADD PRIMARY KEY (`ai`);
-
---
--- Indices de la tabla `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`user_id`),
-  ADD UNIQUE KEY `email` (`email`),
-  ADD UNIQUE KEY `username` (`username`);
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT de la tabla `acl`
---
-ALTER TABLE `acl`
-  MODIFY `ai` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `acl_actions`
---
-ALTER TABLE `acl_actions`
-  MODIFY `action_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `acl_categories`
---
-ALTER TABLE `acl_categories`
-  MODIFY `category_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `denied_access`
---
-ALTER TABLE `denied_access`
-  MODIFY `ai` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT de la tabla `empresas`
 --
 ALTER TABLE `empresas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT de la tabla `establecimientos`
 --
 ALTER TABLE `establecimientos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
--- AUTO_INCREMENT de la tabla `ips_on_hold`
+-- AUTO_INCREMENT de la tabla `establecimientos_tiene_dependientes`
 --
-ALTER TABLE `ips_on_hold`
-  MODIFY `ai` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `login_errors`
---
-ALTER TABLE `login_errors`
-  MODIFY `ai` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+ALTER TABLE `establecimientos_tiene_dependientes`
+  MODIFY `id` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `ofertas`
 --
 ALTER TABLE `ofertas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `perfil`
 --
 ALTER TABLE `perfil`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT de la tabla `username_or_email_on_hold`
+-- AUTO_INCREMENT de la tabla `usuarios`
 --
-ALTER TABLE `username_or_email_on_hold`
-  MODIFY `ai` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- Restricciones para tablas volcadas
---
-
---
--- Filtros para la tabla `acl`
---
-ALTER TABLE `acl`
-  ADD CONSTRAINT `acl_ibfk_1` FOREIGN KEY (`action_id`) REFERENCES `acl_actions` (`action_id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `acl_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE;
-
---
--- Filtros para la tabla `acl_actions`
---
-ALTER TABLE `acl_actions`
-  ADD CONSTRAINT `acl_actions_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `acl_categories` (`category_id`) ON DELETE CASCADE;
-
---
--- Filtros para la tabla `establecimientos`
---
-ALTER TABLE `establecimientos`
-  ADD CONSTRAINT `establecimientos_ibfk_1` FOREIGN KEY (`id_empresa`) REFERENCES `empresas` (`id`),
-  ADD CONSTRAINT `establecimientos_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `users` (`user_id`);
-
---
--- Filtros para la tabla `ofertas`
---
-ALTER TABLE `ofertas`
-  ADD CONSTRAINT `ofertas_ibfk_1` FOREIGN KEY (`id_empresa`) REFERENCES `empresas` (`id`);
-
---
--- Filtros para la tabla `perfil`
---
-ALTER TABLE `perfil`
-  ADD CONSTRAINT `perfil_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `users` (`user_id`);
+ALTER TABLE `usuarios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

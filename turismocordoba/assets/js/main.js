@@ -184,4 +184,8 @@
     aos_init();
   });
 
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
+
 })(jQuery);

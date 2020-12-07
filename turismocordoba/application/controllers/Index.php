@@ -1,7 +1,8 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Index extends CI_Controller {
+class Index extends CI_Controller
+{
 
 	/**
 	 * Index Page for this controller.
@@ -19,13 +20,13 @@ class Index extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 
-    function __construct() {
-        parent::__construct();
-	}
-	
-	public function index()
+	function __construct()
 	{
-		redirect("home");    
+		parent::__construct();
 	}
 
+	public function index()
+	{
+		redirect("home");
+	}
 }
