@@ -21,7 +21,11 @@
                 echo "<td data-id='" . $row->id . "'>" . $row->id . "</td>";
                 echo "<td>" . $row->nombre_empresa . "</td>";
                 echo "<td>" . $row->aprobada . "</td>";
-                echo "<td>" . $row->borrado . "</td>";
+                if ($row->borrado == 0) {
+                    echo "<td>No</td>";
+                } else {
+                    echo "<td>Si</td>";
+                }
                 echo '
                 <td>        
                 <a href="' . base_url() . 'empresas_admin/form/' . $row->id . '">

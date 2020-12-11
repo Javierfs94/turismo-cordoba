@@ -87,6 +87,7 @@ class EStablecimientos_Gerente extends CI_Controller
                 if ($post_id == null) {
                     $data['mensaje'] = "Establecimiento creado satisfactoriamente";
                     $this->Establecimiento->insert($save);
+                    $post_id = $this->Establecimiento->getEstablecimientoLastId($_SESSION['id']);
                     $str = $this->input->post("nombre_establecimiento");
                     $this->upload($post_id, str_replace(' ', '', $str));
                 } else {

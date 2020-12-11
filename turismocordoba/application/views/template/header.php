@@ -24,6 +24,7 @@
                     $empresas = ($activeTab == "empresas") ? "active" : "";
                     $solicitudes = ($activeTab == "solicitudes") ? "active" : "";
                     $dependientes = ($activeTab == "dependientes") ? "active" : "";
+                    $canjear = ($activeTab == "canjear") ? "active" : "";
 
                     switch ($_SESSION['perfil']) {
                         case 1: // turista
@@ -32,6 +33,7 @@
                             break;
 
                         case 2: // dependiente
+                            echo '<li class="' . $canjear . '"><a href="' . base_url() . 'dependiente/canjear">Canjear</a></li>';
                             break;
 
                         case 3: // gerente
@@ -65,7 +67,7 @@
                             ';
                     echo (empty($_SESSION['imagen'])) ? '<img src="' . base_url() . 'uploads/perfiles/default-user.jpg" style="width: 150px; height: 150px;" class="user-image" alt="User Image">' : '<img src="' . base_url() . 'uploads/perfiles/' . $_SESSION['imagen'] . '" style="width: 150px; height: 150px;" class="user-image" alt="User Image">';
                     echo '
-                                <p>
+                                <p class="my-3 text-success">
                                     ' . $_SESSION['username'] . '
                                 </p>
                             </li>

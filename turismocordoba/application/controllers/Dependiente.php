@@ -15,21 +15,32 @@ class Dependiente extends CI_Controller
 
     public function canjear()
     {
-        foreach ($_POST as $key => $value) {
-            if ($key !== "email") {
-                $this->Usuario->sumar_puntos($_POST['email'], $value);
-            }
-        }
-        redirect("home");
-    }
+        $data["activeTab"] = "canjear";
+        $data['mensaje'] = "";
 
-    public function codigos()
-    {
+        $data['codigo'] = $this->input->post('codigo');
+
         $id_empresa =  $this->Usuario->obtenerIDEmpresaDependiene($_SESSION['id']);
         $data['ofertas'] =  $this->Oferta->mostrar_ofertas_propiasDependiente($id_empresa);
-        $data["cantidad"] = $this->input->post("cantidad");
-        $data["activeTab"] = "home";
-        $view["body"] = $this->load->view('home/index', $data, TRUE);
+
+        if ($this->input->server('REQUEST_METHOD') == "POST") {
+
+            $this->form_validation->set_rules('email', 'Correo', 'required|min_length[10]|max_length[60]');
+
+            if ($this->form_validation->run()) {
+                if ($this->Usuario->comprobarEmail($this->input->post('email'))) {
+                    $data['mensaje'] = "El correo es válido. Puntos canjeados correctamente";
+                    foreach ($_POST as $key => $value) {
+                        if ($key !== "email") {
+                            $this->Usuario->sumar_puntos($_POST['email'], $value);
+                        }
+                    }
+                } else {
+                    $data['mensaje'] = "El correo no existe";
+                }
+            }
+        }
+        $view["body"] = $this->load->view('dependiente/index', $data, TRUE);
         $this->parser->parse('template/body', $view);
     }
 }

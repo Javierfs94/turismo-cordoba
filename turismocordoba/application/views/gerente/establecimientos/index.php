@@ -35,7 +35,11 @@
                 echo "<td>" . $row->nombre_establecimiento . "</td>";
                 echo '<td><img src="' . base_url() . 'uploads/establecimientos/' . $row->imagen . '" style="width: 50px; height: 50px;"alt="Establecimientos Imagen"></td>';
                 echo "<td>" . $row->direccion . "</td>";
-                echo "<td>" . $row->estado . "</td>";
+                if ($row->estado == 0) {
+                    echo "<td>Cerrado</td>";
+                } else {
+                    echo "<td>Abierto</td>";
+                }
                 echo '
                 <td>';
                 if ($row->estado == 1) {

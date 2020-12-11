@@ -1,5 +1,5 @@
-<section>
-  <div class="loginContainer">
+<section id="login-section">
+  <div>
 
     <form action="" method="post">
       <div id="login">
@@ -11,7 +11,6 @@
         <div class="form-group">
           <label for="email">Correo electrónico</label>
           <input type="email" name="email" placeholder="correo@ejemplo.com" class="form-control" id="email" value="" aria-describedby="emailHelp" required>
-          <!-- <small id="emailHelp" class="form-text text-muted">Tranquilo, tu correo no será compartido ni usado por terceros.</small> -->
         </div>
 
         <div class="form-group">

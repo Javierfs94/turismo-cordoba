@@ -1,11 +1,8 @@
 <section class="perfil container">
   <?php
-
-
   echo '
-    <div class="container">
       <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-12">
             <a  class="btn btn-default btn-flat" href="' . base_url() . 'perfiles/form/' . $datos->id . '">
               <button class="btn btn-primary">Editar Perfil <i class="fas fa-user-edit"></i></button>
             </a>
@@ -14,13 +11,13 @@
             </a>
           </div>
       </div>
-    </div>
 
-    <div class="container mt-3">
-      <div class="row">
-        <div class="col">
-          <img src=" '  . base_url() . 'uploads/perfiles/' . $datos->imagen . ' " class="img-circle" alt="Imagen de usuario" width="250" height="250"> 
-              <small><h3>Nombre:</small> ' . $datos->nombre . ' ' . $datos->apellidos . '</h3>
+      <div class="row mt-3">
+        <div class="col">';
+        
+  echo (!empty($datos->imagen)) ? '<img src=" '  . base_url() . 'uploads/perfiles/' . $datos->imagen . ' " class="img-circle" alt="Imagen de usuario" width="250" height="250"> ' : '<img src=" '  . base_url() . 'uploads/perfiles/default-user.jpg" class="img-circle" alt="Imagen de usuario" width="250" height="250"> ';
+  
+  echo '<small><h3>Nombre:</small> ' . $datos->nombre . ' ' . $datos->apellidos . '</h3>
               <small><h3>Usuario:</small> ' . $datos->username . '</h3>
               <small><h3>Correo:</small> ' . $datos->email . '</h3>';
 
@@ -55,6 +52,6 @@
   echo '
       </div>
       </div>
-      </div>';
+      ';
   ?>
 </section>

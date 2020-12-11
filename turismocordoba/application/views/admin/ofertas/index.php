@@ -30,8 +30,16 @@
                 echo "<td>" . $row->puntos . "</td>";
                 echo "<td>" . $row->fecha_inicio  . "</td>";
                 echo "<td>" . $row->fecha_fin   . "</td>";
-                echo "<td>" . $row->estado   . "</td>";
-                echo "<td>" . $row->borrado   . "</td>";
+                if ($row->estado == 0) {
+                    echo "<td>Inactivo</td>";
+                } else {
+                    echo "<td>Activo</td>";
+                }
+                if ($row->borrado == 0) {
+                    echo "<td>No</td>";
+                } else {
+                    echo "<td>Si</td>";
+                }
                 echo '
                 <td>        
                 <a href="' . base_url() . 'ofertas_admin/form/' . $row->id . '">

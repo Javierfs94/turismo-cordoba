@@ -26,8 +26,16 @@
                 echo "<td>" . $row->direccion . "</td>";
                 echo '<td><img src="' . base_url() . 'uploads/establecimientos/' . $row->imagen . '" style="width: 50px; height: 50px;"alt="Establecimientos Imagen"></td>';
                 echo "<td>" . $row->tipo . "</td>";
-                echo "<td>" . $row->estado . "</td>";
-                echo "<td>" . $row->borrado . "</td>";
+                if ($row->estado == 0) {
+                    echo "<td>Cerrado</td>";
+                } else {
+                    echo "<td>Abierto</td>";
+                }
+                if ($row->borrado == 0) {
+                    echo "<td>No</td>";
+                } else {
+                    echo "<td>Si</td>";
+                }
                 echo '
                 <td>        
                 <a href="' . base_url() . 'establecimientos_admin/form/' . $row->id . '">

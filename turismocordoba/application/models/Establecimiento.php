@@ -22,7 +22,17 @@ class Establecimiento extends MY_Model
         $this->db->update($this->table, $data);
     }
 
-
+    function getEstablecimientoLastId($id_gerente)
+    {
+        $this->db->select("MAX(id) as id");
+        $this->db->from($this->table);
+        $this->db->where('id_gerente', $id_gerente);
+        $query = $this->db->get();
+        // return $query->result();
+        foreach ($query->result() as $row) {
+            return $row->id;
+        }
+    }
 
     function getEstablecimientoDependiente($id_dependiente)
     {
@@ -79,23 +89,22 @@ class Establecimiento extends MY_Model
 
         return $query->result();
     }
-   
+
     function abrir_establecimiento($id)
-    {     
+    {
         $data = array(
             'estado' => 1
         );
         $this->db->where('id', $id);
         $this->db->update($this->table, $data);
     }
-    
+
     function cerrar_establecimiento($id)
-    {     
+    {
         $data = array(
             'estado' => 0
         );
         $this->db->where('id', $id);
         $this->db->update($this->table, $data);
     }
-   
 }

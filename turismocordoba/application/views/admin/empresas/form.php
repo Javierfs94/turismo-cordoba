@@ -28,7 +28,7 @@
                                     'class' => 'form-control input-lg',
                                 );
 
-                                echo '<label for="username" class="col-sm-2 col-form-label">Username</label>';
+                                echo '<label for="nombre_empresa" class="col-sm-2 col-form-label">Nombre empresa</label>';
 
                                 echo form_input($text_input);
 

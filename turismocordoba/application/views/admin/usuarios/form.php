@@ -152,28 +152,7 @@
                                 ?>
 
                             </div>
-
-                            <div class="form-group row">
-                                <label for="imagen" class="col-sm-2 col-form-label">Imagen</label>
-                                <div class="col-sm-10">
-                                    <?php
-                                    $text_input = array(
-                                        'name' => 'avatar',
-                                        'id' => 'avatar',
-                                        'type' => 'file',
-                                        'value' => '',
-                                        'class' => 'form-control input-lg',
-                                    );
-
-                                    echo form_input($text_input);
-                                    ?>
-
-                                    <?php echo $imagen != "" ? '<img class="img_post img-thumbnail img-presentation-small" style="width: 250px; height: 250px;" src="' . base_url() . 'uploads/perfiles/' . $imagen . '">' : '<img src="' . base_url() . 'assets/img/logo.png" class="img-thumbnail" style="width: 250px; height: 250px;" alt="Imagen de usuario">';
-                                                                 
-                                    echo form_error('avatar', '<div class="text-error">', '</div>');
-                                    ?>
-                                </div>
-                            </div>
+       
 
                             <div class="row">
                                 <div class="col-4">

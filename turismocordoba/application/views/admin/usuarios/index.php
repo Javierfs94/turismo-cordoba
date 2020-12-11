@@ -29,9 +29,25 @@
                 echo "<td>" . $row->apellidos . "</td>";
                 echo "<td>" . $row->email . "</td>";
                 echo '<td><img src="' . base_url() . 'uploads/perfiles/' . $row->imagen . '" style="width: 50px; height: 50px;"alt="User Imagen"></td>';
-                echo "<td>" . $row->perfil . "</td>";
-                echo "<td>" . $row->baneado . "</td>";
-                echo "<td>" . $row->borrado . "</td>";
+                if ($row->perfil == 4) {
+                    echo "<td>Administrador</td>";
+                }elseif ($row->perfil == 3) {
+                    echo "<td>Gerente</td>";
+                }elseif ($row->perfil == 2) {
+                    echo "<td>Dependiente</td>";
+                }elseif ($row->perfil == 1) {
+                    echo "<td>Turista</td>";
+                }
+                if ($row->baneado == 0) {
+                    echo "<td>No</td>";
+                } else {
+                    echo "<td>Si</td>";
+                }
+                if ($row->borrado == 0) {
+                    echo "<td>No</td>";
+                } else {
+                    echo "<td>Si</td>";
+                }
                 echo '
                 <td>        
                 <a href="' . base_url() . 'usuarios_admin/form/' . $row->id . '">

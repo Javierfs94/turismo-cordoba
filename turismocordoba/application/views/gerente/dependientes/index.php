@@ -36,10 +36,13 @@
                 echo "<td>" . $row->nombre . "</td>";
                 echo "<td>" . $row->apellidos . "</td>";
                 echo "<td>" . $row->email . "</td>";
-                echo "<td>" . $row->borrado . "</td>";
+                if ($row->borrado == 0) {
+                    echo "<td>No</td>";
+                } else {
+                    echo "<td>Si</td>";
+                }
                 echo '
-                <td>';
-                echo '    
+                <td>
                 <a href="' . base_url() . 'dependientes_gerente/form/' . $row->id . '">
                     <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Editar el dependiente">
                         <i class="fa fa-pen"></i>

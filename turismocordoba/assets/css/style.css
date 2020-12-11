@@ -433,13 +433,12 @@ h6 {
 # Login
 --------------------------------------------------------------*/
 
-.loginContainer {
+#login-section {
     padding: 5%;
     background: url(../img/puenteNoche.jpg);
-    width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
-    object-fit: cover;
+    object-fit: cover;  
 }
 
 #login {
@@ -454,6 +453,53 @@ h6 {
 #login .form-group {
     color: #fff;
 }
+
+
+/*--------------------------------------------------------------
+# Register
+--------------------------------------------------------------*/
+
+#register-section {
+    padding: 100px;
+    background: url(../img/puenteNoche.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: cover;
+}
+
+#register {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 3em;
+    border-radius: 1%;
+} 
+
+#register .form-group {
+    color: #fff;
+} 
+
+/*--------------------------------------------------------------
+# Solicitud
+--------------------------------------------------------------*/
+
+#solicitud-section {
+    padding: 5%;
+    background: url(../img/puenteNoche.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: cover;
+}
+#solicitud {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 3em;
+    border-radius: 1%;
+} 
+
+#solicitud .form-group {
+    color: #fff;
+} 
+
 
 
 /*--------------------------------------------------------------

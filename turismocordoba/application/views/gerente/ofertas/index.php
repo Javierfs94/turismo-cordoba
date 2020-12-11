@@ -45,7 +45,11 @@
                 echo "<td>" . $row->puntos . "</td>";
                 echo "<td>" . $row->fecha_inicio  . "</td>";
                 echo "<td>" . $row->fecha_fin   . "</td>";
-                echo "<td>" . $row->estado   . "</td>";       
+                if ($row->estado == 0) {
+                    echo "<td>Desactivado</td>";
+                } else {
+                    echo "<td>Activado</td>";
+                }     
                 echo '
                 <td>';
                 if ($row->estado == 1) {
