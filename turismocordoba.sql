@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-12-2020 a las 18:59:14
+-- Tiempo de generación: 11-12-2020 a las 19:54:11
 -- Versión del servidor: 10.4.14-MariaDB
 -- Versión de PHP: 7.2.34
 
@@ -41,8 +41,10 @@ CREATE TABLE `empresas` (
 --
 
 INSERT INTO `empresas` (`id`, `id_gerente`, `nombre_empresa`, `created_at`, `aprobada`, `borrado`) VALUES
-(1, 2, 'Bar Paquita', '2020-12-05 10:16:32', 'si', 0),
-(27, 39, 'McDonalds', '2020-12-07 16:55:22', 'si', 0);
+(1, 2, 'Cabildo de Córdoba', '2020-12-05 10:16:32', 'si', 0),
+(27, 39, 'McDonalds', '2020-12-07 16:55:22', 'si', 0),
+(28, 48, 'Ayuntamiento de Córdoba', '2020-12-08 22:50:38', 'si', 0),
+(29, 50, 'KFC', '2020-12-11 18:12:21', 'si', 0);
 
 -- --------------------------------------------------------
 
@@ -67,11 +69,12 @@ CREATE TABLE `establecimientos` (
 --
 
 INSERT INTO `establecimientos` (`id`, `id_empresa`, `id_gerente`, `nombre_establecimiento`, `direccion`, `imagen`, `tipo`, `estado`, `borrado`) VALUES
-(1, 1, 2, 'La Viona', 'Afufuh', '', 'Restauracion', 1, 0),
-(24, 1, 2, 'Nueva Viola', 'Calle falsa', 'NuevaViola24.jpg', 'Cultura', 1, 0),
-(27, 1, 2, 'Otro establecimiento', 'Un lugar de la mancha', 'Otroestablecimiento27.jpg', 'Ocio', 1, 0),
-(28, 27, 39, 'McDonalds Brillante', 'Avenida del Brillante', NULL, 'Ocio', 1, 0),
-(29, 27, 39, 'McDonads Las Quemadas', 'Las Quemadas', NULL, 'Restauracion', 1, 0);
+(1, 1, 2, 'Mezquita-Catedral de Córdoba', 'Calle Cardenal Herrero, 1, 14003 Córdoba', 'Mezquita-CatedraldeCórdoba1.jpg', 'Cultura', 1, 0),
+(28, 27, 39, 'McDonalds Brillante', 'Av. del Brillante, 20, 14006 Córdoba', 'McDonaldsBrillante28.PNG', 'Restauracion', 1, 0),
+(29, 27, 39, 'McDonads Avenida de Libia', 'Av. de Libia, 13, 14007 Córdoba', 'McDonadsAvenidadeLibia29.PNG', 'Restauracion', 1, 0),
+(30, 28, 48, 'Ayuntamiento', 'Calle Capitulares 1', 'Ayuntamiento30.jpg', 'Cultura', 1, 0),
+(31, 28, 48, 'Torre de la Malmuerta', '14001 Barrio de Santa Marina', 'TorredelaMalmuerta31.jpg', 'Cultura', 1, 0),
+(41, 29, 50, 'KFC Brillante', 'Av. del Brillante, 11, 14006 Córdoba', NULL, '', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -94,7 +97,8 @@ INSERT INTO `establecimientos_tiene_dependientes` (`id`, `id_establecimiento`, `
 (2, 24, 37),
 (3, 24, 38),
 (4, 28, 40),
-(5, 29, 41);
+(5, 29, 41),
+(6, 30, 49);
 
 -- --------------------------------------------------------
 
@@ -121,16 +125,10 @@ CREATE TABLE `ofertas` (
 --
 
 INSERT INTO `ofertas` (`id`, `id_empresa`, `descripcion`, `tipo`, `codigo`, `nivel_requerido`, `puntos`, `fecha_inicio`, `fecha_fin`, `estado`, `borrado`) VALUES
-(1, 1, 'Descuento en la consumición del 30%', 'Cultura', 27, 0, 10, '2020-12-01', '2020-12-24', '1', 0),
-(2, 1, 'Sorteo de cascos', 'Ocio', 456, 1, 30, '2020-12-02', '2020-12-03', '0', 0),
-(3, 1, '2x1 increible', 'Cultura', 111, 0, 50, '2020-12-02', '2020-12-23', '1', 0),
-(4, 1, 'Entrada gratis para niño con adulto', 'Cultura', 478, 5, 10, '2020-12-01', '2020-12-17', '1', 0),
-(5, 1, 'Entrada gratis para menores de 16 años', 'Restauracion', 666, 0, 10, '2020-12-01', '2020-12-11', '1', 0),
-(6, 1, 'Descuento en la consumición del 40%', 'Restauracion', 745, 0, 30, '2020-12-01', '2020-12-06', '0', 0),
-(7, 1, 'Mcpollo de regalo', 'Ocio', 456, 3, 30, '2020-12-01', '2020-12-23', '1', 0),
-(8, 1, 'Oferta de prueba con nivel', 'Ocio', 608, 0, 50, '2020-12-01', '2020-12-03', '0', 0),
-(9, 27, 'MacHamburgesa', 'Restauracion', 891, 0, 5, '2020-12-07', '2020-12-17', '1', 0),
-(10, 27, 'Alitas crujientes', 'Restauracion', 222, 2, 15, '2020-12-07', '2020-12-16', '1', 0);
+(1, 1, 'Entrada gratis a los residentes de la provincia de Córdoba', 'Cultura', 108, 0, 5, '2020-12-01', '2021-12-31', '1', 0),
+(9, 27, 'McBurger', 'Restauracion', 350, 0, 5, '2020-12-07', '2020-12-17', '1', 0),
+(10, 27, 'Alitas crujientes', 'Restauracion', 222, 2, 15, '2020-12-07', '2020-12-16', '1', 0),
+(11, 28, 'Mande foto al correo del ayuntamiento indicando su email', 'Cultura', 299, 0, 5, '2020-12-08', '2020-12-31', '1', 0);
 
 -- --------------------------------------------------------
 
@@ -150,7 +148,7 @@ CREATE TABLE `perfil` (
 --
 
 INSERT INTO `perfil` (`id`, `id_usuario`, `puntos`, `nivel`) VALUES
-(1, 4, 70, 4),
+(1, 4, 30, 6),
 (2, 42, 0, 1),
 (3, 46, 20, 1);
 
@@ -181,18 +179,22 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `username`, `password`, `nombre`, `apellidos`, `email`, `imagen`, `perfil`, `created_at`, `last_login`, `last_modified`, `baneado`, `borrado`) VALUES
-(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Administrador', 'Admini', 'admin@turismocordoba.com', 'admin1.jpg', 4, '2020-11-21 20:48:25', '2020-12-07 17:16:59', '2020-12-04 14:14:35', 0, 0),
-(2, 'gerente', '740d9c49b11f3ada7b9112614a54be41', 'Paco', 'Rios Santos', 'gerente@turismocordoba.com', 'gerente2.jpg', 3, NULL, '2020-12-07 17:55:57', '2020-11-29 20:56:05', 0, 0),
-(3, 'dependiente', 'de0194a0d9548a147bd322c52f6adbe3', 'dependiente', 'dependiente', 'dependiente@turismocordoba.com', '', 2, NULL, '2020-12-07 17:28:02', NULL, 0, 0),
-(4, 'usuario', 'f8032d5cae3de20fcec887f395ec9a6a', 'Romeo', 'Santos', 'usuario@turismocordoba.com', 'usuario4.jpg', 1, NULL, '2020-12-07 17:34:32', '2020-11-30 20:06:04', 0, 0),
-(36, 'profesora', 'fe80b8b4c8941a26aebeb3a534992cc7', 'Lourdes', 'Magarín Corvillo', 'profesora@iesgrancapitan.org', 'profesora36.jpg', 4, '2020-12-05 10:16:41', '2020-12-05 10:28:36', '2020-12-05 10:28:03', 0, 0),
-(37, 'dependiente2', '651a7b944b6a14f35d1b990fa6ea09db', 'dependiente2', 'dependiente2', 'dependiente2@turismocordoba.com', '', 2, '2020-12-07 12:47:51', '2020-12-06 15:59:56', '2020-12-07 12:47:51', 0, 0),
-(38, 'Dependiente3', '97333eb08b7ce7015ee0317d4416daa0', 'Dependiente3', 'Dependientedependiente3', 'dependiente3@turismocordoba.com', NULL, 2, '2020-12-07 18:15:07', NULL, '2020-12-07 18:15:07', 0, 0),
-(39, 'mcdonalds', '5179b21fc1d50950b99b4eecaa48c614', 'Ronald', 'MacDonalds', 'mcdonalds@turismocordoba.com', NULL, 3, '2020-12-07 16:55:22', '2020-12-07 18:15:19', '2020-12-07 17:03:21', 0, 0),
-(40, 'macdependiente1', 'a3169e4eb3b3407f76481f17ec519c6e', 'Macdependiente1', 'Macdependiente1', 'macdependiente1@turismocordoba.com', NULL, 2, '2020-12-07 17:37:01', '2020-12-07 18:34:56', NULL, 0, 0),
-(41, 'macdependiente2', '771675a32ff1d6a5ce69daac46c25980', 'Macdependiente2', 'Macdependiente2', 'macdependiente2@turismocordoba.com', NULL, 2, '2020-12-07 18:17:34', NULL, '2020-12-07 18:17:34', 0, 0),
-(42, 'paquito', 'f8032d5cae3de20fcec887f395ec9a6a', 'Paco', 'Gonzalez', 'pacogonza@turismocordoba.com', NULL, 1, '2020-12-07 18:20:04', '2020-12-07 18:20:15', NULL, 0, 0),
-(46, 'magico', '81dc9bdb52d04dc20036dbd8313ed055', 'Joaquin', 'Felix', 'magico@turismocordoba.com', NULL, 1, '2020-12-07 18:30:07', '2020-12-07 18:30:23', NULL, 0, 0);
+(1, 'rafaus', '21232f297a57a5a743894a0e4a801fc3', 'Rafael', 'Urbano Estepa', 'rafaelurbanoestepa@gmail.com', 'rafaus1.jpg', 4, '2020-11-21 20:48:25', '2020-12-08 15:57:26', '2020-12-08 15:57:43', 0, 0),
+(2, 'obispocordoba', 'e9450ac6826250f02c312ce8471fa8e0', 'Paco', 'Obispo', 'obispocordoba@turismocordoba.com', 'obispocordoba2.png', 3, '2020-12-11 11:01:42', '2020-12-11 11:20:28', '2020-12-11 11:21:02', 0, 0),
+(3, 'dependiente', 'fbbcf0f6cc0c441c0c06e6f74e9000cc', 'Diana', 'López Quesada', 'dependiente1@turismocordoba.com', '', 2, '2020-12-11 11:01:48', '2020-12-11 11:37:16', '2020-12-11 11:37:23', 0, 0),
+(4, 'romeo18', 'f8032d5cae3de20fcec887f395ec9a6a', 'Romeo', 'Santos', 'romeo18@gmail.com', 'romeo184.jpg', 1, '2020-12-11 11:01:51', '2020-12-11 18:54:23', '2020-12-11 18:55:25', 0, 0),
+(36, 'lmagarin', '52b3eca6542c0fc6c486005b475d530f', 'Lourdes', 'Magarín Corvillo', 'lmagarin@iesgrancapitan.org', 'lmagarin36.jpg', 4, '2020-12-05 10:16:41', '2020-12-11 19:08:01', '2020-12-11 11:30:47', 0, 0),
+(37, 'dependiente2', '651a7b944b6a14f35d1b990fa6ea09db', 'Raúl', 'Federico Páez', 'dependiente2@turismocordoba.com', '', 2, '2020-12-07 12:47:51', '2020-12-09 11:04:34', '2020-12-07 12:47:51', 0, 0),
+(38, 'dependiente3', '97333eb08b7ce7015ee0317d4416daa0', 'Carolina', 'Pintor Guzmán', 'dependiente3@turismocordoba.com', '', 2, '2020-12-07 18:15:07', NULL, '2020-12-07 18:15:07', 0, 0),
+(39, 'mcdonalds', '5179b21fc1d50950b99b4eecaa48c614', 'Ronald', 'McDonalds', 'mcdonalds@turismocordoba.com', '', 3, '2020-12-07 16:55:22', '2020-12-07 18:15:19', '2020-12-07 17:03:21', 0, 0),
+(40, 'mcdependiente1', 'a3169e4eb3b3407f76481f17ec519c6e', 'Jorge', 'Torres Santos', 'mcdependiente1@turismocordoba.com', '', 2, '2020-12-07 17:37:01', '2020-12-07 18:34:56', NULL, 0, 0),
+(41, 'mcdependiente2', '771675a32ff1d6a5ce69daac46c25980', 'Ana', 'González Romero', 'mcdependiente2@turismocordoba.com', '', 2, '2020-12-07 18:17:34', NULL, '2020-12-07 18:17:34', 0, 0),
+(42, 'paquito', 'f8032d5cae3de20fcec887f395ec9a6a', 'Paco', 'Gonzalez', 'pacogonza@turismocordoba.com', '', 1, '2020-12-07 18:20:04', '2020-12-07 18:20:15', NULL, 0, 0),
+(46, 'joafelix', '81dc9bdb52d04dc20036dbd8313ed055', 'Joaquin', 'Felix', 'joaquin@outlook.com', '', 1, '2020-12-07 18:30:07', '2020-12-07 18:30:23', NULL, 0, 0),
+(47, 'javierfs', '21232f297a57a5a743894a0e4a801fc3', 'Javier', 'Frías Serrano', 'javifs94@gmail.com', 'javierfs47.jpg', 4, '2020-12-08 20:48:25', '2020-12-11 18:12:47', '2020-12-09 13:06:48', 0, 0),
+(48, 'ayuncor', '05da28cc7fa83374c94ea1efe2608b18', 'Junta', 'Andalucía', 'ayuntacordoba@turismocordoba.com', 'ayuncor48.jpg', 3, '2020-12-08 22:50:38', '2020-12-08 22:51:08', '2020-12-08 23:09:00', 0, 0),
+(49, 'funcionario1', 'c3e7f941cb628aeaa9f01121f10c21c4', 'Luis', 'Soto Pérez', 'funcionario1@turismocordoba.com', '', 2, '2020-12-08 23:14:35', NULL, '2020-12-08 23:14:35', 0, 0),
+(50, 'coronel', '496e7fe3e7cae417b647edda3334fcf0', 'Coronel', 'Sanders', 'coronelsanders@gmail.com', NULL, 3, '2020-12-11 18:12:21', '2020-12-11 18:12:33', NULL, 0, 0);
 
 --
 -- Índices para tablas volcadas
@@ -250,25 +252,25 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `empresas`
 --
 ALTER TABLE `empresas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT de la tabla `establecimientos`
 --
 ALTER TABLE `establecimientos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT de la tabla `establecimientos_tiene_dependientes`
 --
 ALTER TABLE `establecimientos_tiene_dependientes`
-  MODIFY `id` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `ofertas`
 --
 ALTER TABLE `ofertas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `perfil`
@@ -280,7 +282,7 @@ ALTER TABLE `perfil`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
