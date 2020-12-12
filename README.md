@@ -1,4 +1,4 @@
-# cordoba-turismo
+# Turismo Córdoba
 
 # Cómo desplegar en local
 
