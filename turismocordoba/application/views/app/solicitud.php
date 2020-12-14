@@ -8,7 +8,7 @@
                         <a href="<?php echo base_url() ?>home"><b>Turismo Cordoba</b></a>
                     </div>
 
-                    <?php echo '<p style="color: red">' . $mensaje . '</p>'; ?>
+                    <?php echo '<p style="color: green">' . $mensaje . '</p>'; ?>
 
                     <div class="card" id="solicitud">
                         <div class="card-body register-card-body">

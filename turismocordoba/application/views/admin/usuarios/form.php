@@ -110,7 +110,7 @@
                                     '4' => 'Admin',
                                 );
 
-                                echo '<label for="perfil" class="col-sm-2 col-form-label">Nivel autenticacion</label>';
+                                echo '<label for="perfil" class="col-sm-2 col-form-label">Perfil</label>';
 
                                 echo form_dropdown('perfil', $options, $perfil);
 

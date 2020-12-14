@@ -43,7 +43,7 @@ class Empresas_Admin extends CI_Controller
 
         if ($this->input->server('REQUEST_METHOD') == "POST") {
 
-            $this->form_validation->set_rules('nombre_empresa', 'Nombre de empresa', 'required|min_length[5]|max_length[60]');
+            $this->form_validation->set_rules('nombre_empresa', 'Nombre de empresa', 'required|min_length[2]|max_length[60]');
 
             $data['nombre_empresa'] =  $this->input->post("nombre_empresa");
             
@@ -63,7 +63,7 @@ class Empresas_Admin extends CI_Controller
                 } else {
                     $data['mensaje'] = "Empresa modificada satisfactoriamente";
 
-                    $save['last_modified'] = date('Y-m-d H:i:s');
+                    // $save['last_modified'] = date('Y-m-d H:i:s');
 
                     $this->Empresa->update($post_id, $save);
                 }

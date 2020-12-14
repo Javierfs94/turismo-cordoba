@@ -158,7 +158,8 @@ class Home extends CI_Controller
 
                 $datosEstablecimiento = array(
                     'nombre_establecimiento' => $this->input->post('establecimiento'),
-                    'direccion' => $this->input->post('direccion')
+                    'direccion' => $this->input->post('direccion'),
+                    'tipo' => 'Cultura'
                 );
 
                 $datosGerente = array(

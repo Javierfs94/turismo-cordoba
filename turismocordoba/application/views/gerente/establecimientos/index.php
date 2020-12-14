@@ -21,6 +21,7 @@
                     <th>Nombre Empresa</th>
                     <th>Nombre Establecimiento</th>
                     <th>Imagen</th>
+                    <th>Tipo</th>
                     <th>Direccion</th>
                     <th>Estado</th>      
                     <th>Acciones</th>
@@ -34,6 +35,7 @@
                 echo "<td>" . $row->nombre_empresa . "</td>";
                 echo "<td>" . $row->nombre_establecimiento . "</td>";
                 echo '<td><img src="' . base_url() . 'uploads/establecimientos/' . $row->imagen . '" style="width: 50px; height: 50px;"alt="Establecimientos Imagen"></td>';
+                echo "<td>" . $row->tipo . "</td>";
                 echo "<td>" . $row->direccion . "</td>";
                 if ($row->estado == 0) {
                     echo "<td>Cerrado</td>";

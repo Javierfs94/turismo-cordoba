@@ -29,7 +29,7 @@
         echo '<div class="form-group"">';
 
         foreach ($ofertas as $row => $value) {
-            $options[$value->codigo] = $value->codigo;
+            $options[$value->codigo] = $value->codigo . " - " . $value->descripcion;
         }
 
         echo form_label('Código', 'codigo');

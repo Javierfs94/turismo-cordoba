@@ -44,7 +44,7 @@
                                     'name' => 'nivel_requerido',
                                     'id' => 'nivel_requerido',
                                     'type' => 'number',
-                                    'value' => 0,
+                                    'value' => $nivel_requerido,
                                     'placeholder' => 'codigo',
                                     'class' => 'form-control input-lg',
                                 );
@@ -78,6 +78,7 @@
                                 ?>
 
                             </div>
+                            
                             <div class="form-group row">
                                 <?php
 

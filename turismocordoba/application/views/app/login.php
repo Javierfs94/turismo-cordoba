@@ -6,7 +6,7 @@
 
         <h3>Entrar</h3>
 
-        <?php echo '<p style="color: red">' . $mensaje . '</p>'; ?>
+        <?php echo '<p style="color: green">' . $mensaje . '</p>'; ?>
 
         <div class="form-group">
           <label for="email">Correo electrónico</label>

@@ -41,7 +41,8 @@ class Ofertas_Gerente extends CI_Controller
             // crear post
             $data['descripcion'] = $data['tipo'] =  "";
             $data['fecha_inicio'] = $data['fecha_fin'] = NULL;
-            $data['estado'] = $data['nivel_requerido'] = $data['puntos'] = 0;
+            $data['estado'] = $data['nivel_requerido'] =  1;
+            $data['puntos'] = 5;
             $data["title"] = "Crear oferta";
         } else {
             // edicion post
@@ -62,12 +63,12 @@ class Ofertas_Gerente extends CI_Controller
         }
 
         $id_empresa = $this->Empresa->getIdEmpresa($_SESSION["id"]);
-  
+
         if ($this->input->server('REQUEST_METHOD') == "POST") {
-            $this->form_validation->set_rules('descripcion', 'Descripcion de la oferta', 'required|min_length[5]|max_length[60]');
+            $this->form_validation->set_rules('descripcion', 'Descripcion de la oferta', 'required|min_length[5]|max_length[120]');
             $this->form_validation->set_rules('nivel_requerido', 'Nivel requerido', 'required|min_length[1]|max_length[3]');
             $this->form_validation->set_rules('puntos', 'Puntos otorgados por la oferta', 'required|min_length[1]|max_length[2]');
-            
+
             $data['descripcion'] =  $this->input->post("descripcion");
             $data['tipo'] =  $this->input->post("tipo");
             $data['puntos'] =  $this->input->post("puntos");
@@ -75,7 +76,7 @@ class Ofertas_Gerente extends CI_Controller
             $data['fecha_fin'] =  $this->input->post("fecha_fin");
             $data['estado'] =  $this->input->post("estado");
             $data['nivel_requerido'] =  $this->input->post("nivel_requerido");
-            
+
             if ($this->form_validation->run()) {
                 $save = array(
                     'id_empresa' =>  $id_empresa[0]->id,

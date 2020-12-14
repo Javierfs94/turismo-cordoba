@@ -41,7 +41,8 @@ class EStablecimientos_Gerente extends CI_Controller
             // crear post
             $data['nombre_establecimiento'] = $data['tipo'] = $data['direccion'] = $data['imagen'] =  "";
             $data['fecha_inicio'] = $data['fecha_fin'] = NULL;
-            $data['estado'] = $data['puntos'] = 0;
+            $data['puntos'] = 0;
+            $data['estado'] = 1;
             $data["title"] = "Crear establecimiento";
         } else {
             // edicion post

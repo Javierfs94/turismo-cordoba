@@ -1,26 +1,26 @@
 <section>
-    <div class="row p-3">
+    <div class="row" data-aos="fade-down">
         <?php
         echo '
     <div class="col-sm-12 d-flex justify-content-center">
         <a class="p-1" href="' . base_url() . 'turista/establecimientos">
             <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Mostrar todos los establecimientos">
-                <i class="fa fa-home"></i>
+                <i class="fa fa-home text-white"></i>
             </button>
         </a>
         <a class="p-1" href="' . base_url() . 'turista/establecimientos/Ocio">
             <button type="button" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Filtrar los establecimientos por ocio">
-                <i class="fa fa-bowling-ball"></i>
+                <i class="fa fa-bowling-ball text-white"></i>
             </button>
         </a>
         <a class="p-1" href="' . base_url() . 'turista/establecimientos/Restauracion">
             <button type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Filtrar los establecimientos por restauracion">
-                <i class="fas fa-hamburger"></i>
+                <i class="fas fa-hamburger text-white"></i>
             </button>
         </a>        
         <a class="p-1" href="' . base_url() . 'turista/establecimientos/Cultura">
             <button type="button" class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Filtrar los establecimientos por cultura">
-                <i class="fas fa-archway"></i>
+                <i class="fas fa-archway text-white"></i>
             </button>
         </a>
     </div>
@@ -28,13 +28,13 @@
         ?>
     </div>
 
-    <div class="row p-3">
+    <div class="row px-5 " data-aos="fade-up">
         <?php
         foreach ($establecimientos as $row) {
             switch ($row->tipo) {
                 case 'Ocio':
                     echo '
-                    <div class="card col-sm-3 bg-success m-1">
+                    <div class="card col-sm-3 col-md-4  bg-success">
                         <div class="card-body  text-center">';
                     if (empty($row->imagen)) {
                         echo '<img src="' . base_url() . 'assets/img/logo.png" class="img-thumbnail rounded-circle" style="width: 150px; height: 150px;" alt="Establecimiento Imagen">';
@@ -52,7 +52,7 @@
                     break;
                 case 'Cultura':
                     echo '
-                    <div class="card col-sm-3 bg-warning m-1">
+                    <div class="card col-sm-3 col-md-4  bg-warning">
                         <div class="card-body  text-center">';
                     if (empty($row->imagen)) {
                         echo '<img src="' . base_url() . 'assets/img/logo.png" class="img-thumbnail rounded-circle" style="width: 150px; height: 150px;" alt="Establecimiento Imagen">';
@@ -70,7 +70,7 @@
                     break;
                 case 'Restauracion':
                     echo '
-                    <div class="card col-sm-3 bg-danger m-1">
+                    <div class="card col-sm-3 col-md-4  bg-danger">
                         <div class="card-body  text-center">';
                     if (empty($row->imagen)) {
                         echo '<img src="' . base_url() . 'assets/img/logo.png" class="img-thumbnail rounded-circle" style="width: 150px; height: 150px;" alt="Establecimiento Imagen">';
