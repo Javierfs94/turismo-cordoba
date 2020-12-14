@@ -28,14 +28,18 @@
                 echo "<td>" . $row->nombre . "</td>";
                 echo "<td>" . $row->apellidos . "</td>";
                 echo "<td>" . $row->email . "</td>";
-                echo '<td><img src="' . base_url() . 'uploads/perfiles/' . $row->imagen . '" style="width: 50px; height: 50px;"alt="User Imagen"></td>';
+                if (!empty($row->imagen)) {
+                    echo '<td><img src="' . base_url() . 'uploads/perfiles/' . $row->imagen . '" style="width: 50px; height: 50px;"alt="User Imagen"></td>';
+                } else {
+                    echo '<td><img src="' . base_url() . 'uploads/perfiles/default-user.jpg" style="width: 50px; height: 50px;"alt="Establecimientos Imagen"></td>';
+                }
                 if ($row->perfil == 4) {
                     echo "<td>Administrador</td>";
-                }elseif ($row->perfil == 3) {
+                } elseif ($row->perfil == 3) {
                     echo "<td>Gerente</td>";
-                }elseif ($row->perfil == 2) {
+                } elseif ($row->perfil == 2) {
                     echo "<td>Dependiente</td>";
-                }elseif ($row->perfil == 1) {
+                } elseif ($row->perfil == 1) {
                     echo "<td>Turista</td>";
                 }
                 if ($row->baneado == 0) {

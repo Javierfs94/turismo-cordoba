@@ -34,7 +34,11 @@
                 echo "<td data-id='" . $row->id . "'>" . $row->id . "</td>";
                 echo "<td>" . $row->nombre_empresa . "</td>";
                 echo "<td>" . $row->nombre_establecimiento . "</td>";
-                echo '<td><img src="' . base_url() . 'uploads/establecimientos/' . $row->imagen . '" style="width: 50px; height: 50px;"alt="Establecimientos Imagen"></td>';
+                if (!empty($row->imagen)) {
+                    echo '<td><img src="' . base_url() . 'uploads/establecimientos/' . $row->imagen . '" style="width: 50px; height: 50px;"alt="Establecimientos Imagen"></td>';
+                }else {
+                    echo '<td><img src="' . base_url() . 'assets/img/logo.png" style="width: 50px; height: 50px;"alt="Establecimientos Imagen"></td>';
+                }
                 echo "<td>" . $row->tipo . "</td>";
                 echo "<td>" . $row->direccion . "</td>";
                 if ($row->estado == 0) {
