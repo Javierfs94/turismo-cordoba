@@ -8,7 +8,7 @@ Una vez instalado XAMPP, pudiendo descargarlo de https://www.apachefriends.org/e
 
 Descargamos el repositorio del proyecto, y copiados la carpeta turismocordoba en el htdocs de XAMPP.
 
-En phpmyadmin haremos login (por defecto el login se hace sin contraseña). Crearemos una base de datos llamada turismocordoba, accederemos y en las opciones d ela barra superior, pulsaremos en Importar, e importaremos el fichero turismocordoba.sql.
+En phpmyadmin haremos login (por defecto el login se hace sin contraseña). Crearemos una base de datos llamada turismocordoba, accederemos y en las opciones de la barra superior, pulsaremos en Importar, e importaremos el fichero turismocordoba.sql.
 
 Tras estos pasos tendriamos el proyecto montado y funcional en local.
 
